@@ -20,13 +20,13 @@ function Feedback() {
     }));
   };
   //---------------------------------------------------->
-  const countTotalFeedback = () => {
+  const counterTotalFeedback = () => {
     const { good, neutral, bad } = feedback;
     return good + neutral + bad;
   };
   //---------------------------------------------------->
   const positivePercentage = () => {
-    const totalFeedback = countTotalFeedback();
+    const totalFeedback = counterTotalFeedback();
     return totalFeedback === 0
       ? 0
       : Math.round((100 / totalFeedback) * feedback.good);
@@ -34,11 +34,11 @@ function Feedback() {
   //---------------------------------------------------->
   const { good, neutral, bad } = feedback;
   const positive = positivePercentage();
-  const totalFeedback = countTotalFeedback();
+  const totalFeedback = counterTotalFeedback();
   //---------------------------------------------------->
   return (
     <Container>
-      <h2>Please leave feedback</h2>
+      <h2>Please leave feedback!!!</h2>
       <FeedbackOptions
         options={Object.keys(feedback)}
         onLeaveFeedback={feedbackType}

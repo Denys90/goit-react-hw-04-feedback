@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import Section from './Section';
-import Statistics from './Statistics';
-import FeedbackOptions from './FeedbackOptions';
-import Notification from './Notification';
-import { Container } from './Styled/Feedback.styled';
+import Section from '../Section/Section';
+import Statistics from '../Statistics/Statistics';
+import FeedbackOptions from '../FeedbackOptions/FeedbackOptions';
+import Notification from '../Notification/Notification';
+import { Container } from '../Styled/Feedback.styled';
 
 function Feedback() {
   const [feedback, setFeedback] = useState({

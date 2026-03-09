@@ -1,12 +1,12 @@
 import { Button } from '../Styled/Button.styled';
 
 type Option = 'good' | 'bad' | 'neutral';
-type FeedbackOptionProps = {
+type Props = {
   options: Option[];
   onLeaveFeedback: (type: Option) => void;
 };
 
-const FeedbackOptions = ({ options, onLeaveFeedback }: FeedbackOptionProps) => (
+const FeedbackOptions = ({ options, onLeaveFeedback }: Props) => (
   <div>
     {options.map(option => {
       let buttonColor;

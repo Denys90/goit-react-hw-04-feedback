@@ -5,25 +5,31 @@ import FeedbackOptions from '../FeedbackOptions/FeedbackOptions';
 import Notification from '../Notification/Notification';
 import { Container } from '../Styled/Feedback.styled';
 
+type FeedbackState = {
+  good: number;
+  neutral: number;
+  bad: number;
+};
+
+type FeedbackType = keyof FeedbackState;
+
 function Feedback() {
-  const [feedback, setFeedback] = useState({
+  const [feedback, setFeedback] = useState<FeedbackState>({
     good: 0,
     neutral: 0,
     bad: 0,
   });
 
   //---------------------------------------------------->
-  const feedbackType = type => {
+  const feedbackType = (type: FeedbackType) => {
     setFeedback(prevState => ({
       ...prevState,
       [type]: prevState[type] + 1,
     }));
   };
   //---------------------------------------------------->
-  const counterTotalFeedback = () => {
-    const { good, neutral, bad } = feedback;
-    return good + neutral + bad;
-  };
+  const counterTotalFeedback = () =>
+    feedback.bad + feedback.good + feedback.neutral;
   //---------------------------------------------------->
   const positivePercentage = () => {
     const totalFeedback = counterTotalFeedback();
@@ -40,7 +46,7 @@ function Feedback() {
     <Container>
       <h2>Please leave feedback!!!</h2>
       <FeedbackOptions
-        options={Object.keys(feedback)}
+        options={Object.keys(feedback) as (keyof typeof feedback)[]}
         onLeaveFeedback={feedbackType}
       />
       <Section title="Statistics">

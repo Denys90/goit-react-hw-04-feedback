@@ -5,7 +5,21 @@ import { FcCancel } from 'react-icons/fc';
 import { FcNeutralDecision } from 'react-icons/fc';
 import { FcBarChart } from 'react-icons/fc';
 
-const Statistics = ({ good, neutral, bad, total, positivePercentage }) => {
+type StatisticsProps = {
+  good: number;
+  neutral: number;
+  bad: number;
+  total: number;
+  positivePercentage: number;
+};
+
+const Statistics = ({
+  good,
+  neutral,
+  bad,
+  total,
+  positivePercentage,
+}: StatisticsProps) => {
   return (
     <div>
       <p>
